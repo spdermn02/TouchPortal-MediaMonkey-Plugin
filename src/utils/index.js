@@ -2,9 +2,9 @@ const http = require('http');
 const { MEDIA_MONKEY_JSON_URL }= require('../consts');
 
 module.exports.mediaMonkeyWsUrl = () => {
-    return new Promise( (resolve,reject) => {
-        const req = http.get(MEDIA_MONKEY_JSON_URL,(res) => {
-            const { statusCode } = res
+	return new Promise( (resolve,reject) => {
+		const req = http.get(MEDIA_MONKEY_JSON_URL,(res) => {
+			const { statusCode } = res
 
 			let error
 			// Any 2xx status code signals a successful response but
@@ -24,20 +24,20 @@ module.exports.mediaMonkeyWsUrl = () => {
 			res.on('end', () => {
 				try {
 					const jsonData = JSON.parse(data)
-                    jsonData.forEach((val,idx) => {
-                        if( val.title === 'mainwindow.html' ) {
-                            resolve(val.webSocketDebuggerUrl)
-                        }
-                    })
+					jsonData.forEach((val,idx) => {
+						if( val.title === 'mainwindow.html' ) {
+							resolve(val.webSocketDebuggerUrl)
+						}
+					})
 				}
 				catch (e) {
 					resolve("ERROR: Check for Update error=",e.message)
 				}
 			});
-        })
-        req.on('error', (e) => {
-            resolve(e)
-        })
-        req.end()
-    })
+		})
+		req.on('error', (e) => {
+			resolve(e)
+		})
+		req.end()
+	})
 }
