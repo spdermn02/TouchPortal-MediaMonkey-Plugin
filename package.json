@@ -1,0 +1,20 @@
+{
+  "name": "touchportal-mediamonkey-plugin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.25.0",
+    "https": "^1.0.0",
+    "touchportal-api": "^3.0.0",
+    "websocket": "^1.0.34"
+  },
+  "devDependencies": {
+    "pkg": "^5.5.2"
+  }
+}
