@@ -35,6 +35,9 @@ module.exports.mediaMonkeyWsUrl = () => {
 				}
 			});
 		})
+		req.on('timeout', (e) => {
+			resolve(e)
+		})
 		req.on('error', (e) => {
 			resolve(e)
 		})
